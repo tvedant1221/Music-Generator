@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Music Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">AI Music Generator 🎵</h2>
+        <form method="POST" action="/generate">
+            <div class="mb-3">
+                <label for="genre" class="form-label">Select Genre:</label>
+                <select class="form-select" name="genre" id="genre" required>
+                    <option value="Classical">Classical</option>
+                    <option value="Jazz">Jazz</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="emotion" class="form-label">Select Emotion:</label>
+                <select class="form-select" name="emotion" id="emotion" required>
+                    <option value="Happy">Happy</option>
+                    <option value="Angry">Angry</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Generate Music</button>
+        </form>
+
+        {% if generated %}
+        <div class="mt-4 text-center">
+            <h5>Music Generated! 🎧</h5>
+            <a href="/static/output.mid" class="btn btn-success">Download MIDI</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
